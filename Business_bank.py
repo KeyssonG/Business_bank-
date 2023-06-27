@@ -13,7 +13,8 @@ perfil = ''
 autenticacao = ''
 conta = '58740'
 valor = ''
-
+transf = ''
+conta_destin = ''
 
 
 
@@ -67,7 +68,23 @@ while True:
                         print(f'Boleto no valor de R${valor:.2f} gerado, prazo para compensação de até 3 dias úteis.')
                             
                         saldo = saldo + valor
-                            
+                        
+                    if menu == 't':
+                        trans = input(f'O seu saldo é de R${saldo}, deseja fazer uma TED, DOC ou PIX? ')
+                        if trans == 'TED' or trans == 'ted' or trans == 'Ted':
+                           transf = int(input('Digite o valor que deseja transferir: '))
+                           conta_destin = input('Digite a conta de destino: ')
+                           print(f'{nome} a sua transferencia no valor de R${transf:.2f} para a conta {conta_destin} foi enviada com sucesso.                                            '
+                           
+                                
+                                '\nO saldo deve entrar na conta de destino até as 17h de hoje, caso seja feito após esse horário, o saldo compensará no proximo dia útil.')
+                                
+                        print('-'*50)    
+                                
+                        saldo = saldo - transf
+                
+ 
+                
                     elif menu == 's':
                         print('Acesso encerrado...')
                         break
@@ -144,6 +161,22 @@ while True:
             print(f'Boleto no valor de R${valor:.2f} gerado, prazo para compensação de até 3 dias úteis.')
                 
             saldo = saldo + valor
+            
+        if menu == 't':
+            trans = input(f'O seu saldo é de R${saldo}, deseja fazer uma TED, DOC ou PIX? ')
+            if trans == 'TED' or trans == 'ted' or trans == 'Ted':
+               transf = int(input('Digite o valor que deseja transferir: '))
+               conta_destin = input('Digite a conta de destino: ')
+               print(f'{nome} a sua transferencia no valor de R${transf:.2f} para a conta {conta_destin} foi enviada com sucesso.                                            '
+               
+                    
+                    '\nO saldo deve entrar na conta de destino até as 17h de hoje, caso seja feito após esse horário, o saldo compensará no proximo dia útil.')
+                    
+            print('-'*50)    
+                    
+            saldo = saldo - transf
+                
+ 
                 
         elif menu == 's':
             print('Acesso encerrado...')
